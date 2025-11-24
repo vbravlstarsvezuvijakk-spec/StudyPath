@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>StudyPath - Ваш надежный проводник в мир высшего образования</title>
+    <title>StudyPath - Навигатор по институтам и колледжам России</title>
     <meta name="theme-color" content="#4361ee">
-    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
@@ -16,13 +16,11 @@
                     <span>StudyPath</span>
                 </div>
                 <ul class="nav-links">
-                    <li><a href="/">Главная</a></li>
-                    <li><a href="/#quiz">Тест</a></li>
-                    <li><a href="/#assistant">Помощник</a></li>
-                    <li><a href="/#institutes">Институты</a></li>
-                    <li><a href="/#colleges">Колледжи</a></li>
-                    <li><a href="/about">О проекте</a></li>
-                    <li><a href="/contacts">Контакты</a></li>
+                    <li><a href="#quiz" class="active">Тест</a></li>
+                    <li><a href="#assistant">Помощник</a></li>
+                    <li><a href="#institutes">Институты</a></li>
+                    <li><a href="#colleges">Колледжи</a></li>
+                    <li><a href="#about">О проекте</a></li>
                 </ul>
             </nav>
         </div>
@@ -249,6 +247,10 @@
         <div class="container">
             <h2 class="section-title">Институты и университеты России</h2>
             
+            <div class="map-container">
+                <div id="map"></div>
+            </div>
+            
             <div class="filter-panel">
                 <div class="filter-group">
                     <label>Регион</label>
@@ -389,14 +391,19 @@
         </div>
     </div>
 
-    <footer id="footer">
+    <footer id="about">
         <div class="container">
             <div class="logo">StudyPath</div>
             <p>Помогаем абитуриентам найти свой путь с 2025 года</p>
+            <ul class="footer-links">
+                <li><a href="about">О нас</a></li>
+                <li><a href="contacts">Контакты</a></li>
+            </ul>
             <p>© 2025 StudyPath. Все права защищены.</p>
         </div>
     </footer>
 
-    <script src="/script.js"></script>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>

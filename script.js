@@ -1050,6 +1050,45 @@ function changeCollegeTab(tabId) {
     event.target.classList.add('active');
 }
 
+// Функционал для FAQ на странице контактов
+function initFAQ() {
+    const faqItems = document.querySelectorAll('.faq-item');
+    
+    faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        
+        question.addEventListener('click', () => {
+            // Закрываем все остальные элементы
+            faqItems.forEach(otherItem => {
+                if (otherItem !== item && otherItem.classList.contains('active')) {
+                    otherItem.classList.remove('active');
+                }
+            });
+            
+            // Переключаем текущий элемент
+            item.classList.toggle('active');
+        });
+    });
+}
+
+// Инициализация при загрузке страницы
+document.addEventListener('DOMContentLoaded', function() {
+    // Если мы на странице контактов, инициализируем FAQ
+    if (document.querySelector('.faq-list')) {
+        initFAQ();
+    }
+    
+    // Обработка формы обратной связи
+    const contactForm = document.querySelector('.contact-form');
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Спасибо за ваше сообщение! Мы свяжемся с вами в ближайшее время.');
+            this.reset();
+        });
+    }
+});
+
 // Плавная прокрутка к якорям 
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
