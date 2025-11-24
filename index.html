@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudyPath - Навигатор по институтам и колледжам России</title>
+    <meta name="theme-color" content="#4361ee">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <span class="logo-icon">SP</span>
+                    <span>StudyPath</span>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#quiz" class="active">Тест</a></li>
+                    <li><a href="#assistant">Помощник</a></li>
+                    <li><a href="#institutes">Институты</a></li>
+                    <li><a href="#colleges">Колледжи</a></li>
+                    <li><a href="#about">О проекте</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Найди свой идеальный институт или колледж</h1>
+            <p>Искусственный интеллект поможет выбрать направление обучения и подобрать лучшие учебные заведения по всей России на основе твоих интересов и способностей</p>
+            <a href="#quiz" class="btn">Начать тест</a>
+            <a href="#colleges" class="btn btn-college">Смотреть колледжи</a>
+        </div>
+    </section>
+
+    <section id="quiz" class="section">
+        <div class="container">
+            <h2 class="section-title">Ответь на несколько вопросов</h2>
+            
+            <div class="card">
+                <div class="progress-bar">
+                    <div class="progress" id="progress"></div>
+                </div>
+                
+                <div id="question-1">
+                    <div class="form-group">
+                        <label>Какие предметы тебе нравятся больше всего?</label>
+                        <select id="subjects">
+                            <option value="">Выбери один или несколько</option>
+                            <option value="math">Математика</option>
+                            <option value="physics">Физика</option>
+                            <option value="biology">Биология</option>
+                            <option value="chemistry">Химия</option>
+                            <option value="it">Информатика</option>
+                            <option value="history">История</option>
+                            <option value="languages">Иностранные языки</option>
+                            <option value="literature">Литература</option>
+                            <option value="art">Искусство</option>
+                            <option value="economics">Экономика</option>
+                        </select>
+                    </div>
+                    <button class="btn" onclick="showQuestion(2)">Далее</button>
+                </div>
+                
+                <div id="question-2" class="hidden">
+                    <div class="form-group">
+                        <label>Какой формат работы тебе ближе?</label>
+                        <select id="work-type">
+                            <option value="">Выбери вариант</option>
+                            <option value="team">Работа в команде</option>
+                            <option value="independent">Самостоятельная работа</option>
+                            <option value="creative">Творческая работа</option>
+                            <option value="analytical">Аналитическая работа</option>
+                            <option value="practical">Практическая работа</option>
+                        </select>
+                    </div>
+                    <button class="btn" onclick="showQuestion(1)">Назад</button>
+                    <button class="btn" onclick="showQuestion(3)">Далее</button>
+                </div>
+                
+                <div id="question-3" class="hidden">
+                    <div class="form-group">
+                        <label>Какая сфера деятельности тебя привлекает?</label>
+                        <select id="field">
+                            <option value="">Выбери вариант</option>
+                            <option value="it">IT и технологии</option>
+                            <option value="engineering">Инженерия</option>
+                            <option value="science">Наука и исследования</option>
+                            <option value="medicine">Медицина</option>
+                            <option value="business">Бизнес и менеджмент</option>
+                            <option value="art">Искусство и дизайн</option>
+                            <option value="education">Образование</option>
+                            <option value="law">Юриспруденция</option>
+                            <option value="economics">Экономика и финансы</option>
+                        </select>
+                    </div>
+                    <button class="btn" onclick="showQuestion(2)">Назад</button>
+                    <button class="btn" onclick="showQuestion(4)">Далее</button>
+                </div>
+                
+                <div id="question-4" class="hidden">
+                    <div class="form-group">
+                        <label>Какой уровень дохода ты ожидаешь после окончания обучения?</label>
+                        <select id="salary">
+                            <option value="">Выбери вариант</option>
+                            <option value="low">Главное чтобы работа была интересной</option>
+                            <option value="medium">Средний, но стабильный</option>
+                            <option value="high">Выше среднего</option>
+                            <option value="very-high">Максимально возможный</option>
+                        </select>
+                    </div>
+                    <button class="btn" onclick="showQuestion(3)">Назад</button>
+                    <button class="btn" onclick="showQuestion(5)">Далее</button>
+                </div>
+                
+                <div id="question-5" class="hidden">
+                    <div class="form-group">
+                        <label>Предпочитаешь работать в офисе или удаленно?</label>
+                        <select id="workplace">
+                            <option value="">Выбери вариант</option>
+                            <option value="office">В офисе с коллегами</option>
+                            <option value="remote">Удаленно из любого места</option>
+                            <option value="hybrid">Смешанный формат</option>
+                            <option value="flexible">Не важно, главное - интересные задачи</option>
+                        </select>
+                    </div>
+                    <button class="btn" onclick="showQuestion(4)">Назад</button>
+                    <button class="btn" onclick="showQuestion(6)">Далее</button>
+                </div>
+                
+                <div id="question-6" class="hidden">
+                    <div class="form-group">
+                        <label>Какой тип задач тебе интереснее?</label>
+                        <select id="tasks">
+                            <option value="">Выбери вариант</option>
+                            <option value="creative">Творческие задачи</option>
+                            <option value="analytical">Анализ данных</option>
+                            <option value="technical">Технические задачи</option>
+                            <option value="communication">Работа с людьми</option>
+                            <option value="management">Организация процессов</option>
+                        </select>
+                    </div>
+                    <button class="btn" onclick="showQuestion(5)">Назад</button>
+                    <button class="btn" onclick="showQuestion(7)">Далее</button>
+                </div>
+                
+                <div id="question-7" class="hidden">
+                    <div class="form-group">
+                        <label>Какой график работы тебе предпочтительнее?</label>
+                        <select id="schedule">
+                            <option value="">Выбери вариант</option>
+                            <option value="standard">Стандартный 5/2</option>
+                            <option value="flexible">Гибкий график</option>
+                            <option value="shift">Сменный график</option>
+                            <option value="project">Проектная работа</option>
+                            <option value="irregular">Ненормированный рабочий день</option>
+                        </select>
+                    </div>
+                    <button class="btn" onclick="showQuestion(6)">Назад</button>
+                    <button class="btn" onclick="showQuestion(8)">Далее</button>
+                </div>
+                
+                <div id="question-8" class="hidden">
+                    <div class="form-group">
+                        <label>Что для тебя важнее в работе?</label>
+                        <select id="values">
+                            <option value="">Выбери вариант</option>
+                            <option value="money">Высокий доход</option>
+                            <option value="stability">Стабильность</option>
+                            <option value="growth">Карьерный рост</option>
+                            <option value="balance">Баланс работы и жизни</option>
+                            <option value="meaning">Смысл и польза деятельности</option>
+                        </select>
+                    </div>
+                    <button class="btn" onclick="showQuestion(7)">Назад</button>
+                    <button class="btn" onclick="showQuestion(9)">Далее</button>
+                </div>
+                
+                <div id="question-9" class="hidden">
+                    <div class="form-group">
+                        <label>Хочешь ли ты продолжить обучение после получения первого образования?</label>
+                        <select id="further-education">
+                            <option value="">Выбери вариант</option>
+                            <option value="yes">Да, планирую получить высшее образование</option>
+                            <option value="no">Нет, хочу начать работать после колледжа</option>
+                            <option value="maybe">Возможно, но не уверен(а)</option>
+                            <option value="abroad">Хочу учиться за границей</option>
+                        </select>
+                    </div>
+                    <button class="btn" onclick="showQuestion(8)">Назад</button>
+                    <button class="btn" onclick="showQuestion(10)">Далее</button>
+                </div>
+                
+                <div id="question-10" class="hidden">
+                    <div class="form-group">
+                        <label>В каком городе ты хочешь учиться?</label>
+                        <select id="city">
+                            <option value="">Выбери вариант</option>
+                            <option value="moscow">Москва</option>
+                            <option value="petersburg">Санкт-Петербург</option>
+                            <option value="big-city">Крупный город-миллионник</option>
+                            <option value="regional-center">Региональный центр</option>
+                            <option value="hometown">В своем городе</option>
+                            <option value="any">Не важно</option>
+                        </select>
+                    </div>
+                    <button class="btn" onclick="showQuestion(9)">Назад</button>
+                    <button class="btn" onclick="calculateResults()">Узнать результат</button>
+                </div>
+                
+                <div id="results" class="hidden">
+                    <h3>Наши рекомендации для тебя</h3>
+                    <p id="result-text"></p>
+                    <div class="tags" id="result-tags"></div>
+                    <div style="display: flex; gap: 10px; margin-top: 20px;">
+                        <a href="#institutes" class="btn">Подходящие институты</a>
+                        <a href="#colleges" class="btn btn-college">Подходящие колледжи</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="assistant" class="section">
+        <div class="container">
+            <h2 class="section-title">AI-помощник в выборе учебного заведения</h2>
+            
+            <div class="card">
+                <div class="chat-container">
+                    <div class="chat-messages" id="chat-messages">
+                        <div class="message bot-message">
+                            Привет! Я твой помощник в выборе учебного заведения. Задай мне любой вопрос о поступлении, направлениях обучения, институтах или колледжах. Я помогу тебе найти подходящие варианты и предоставлю подробную информацию.
+                        </div>
+                    </div>
+                    <div class="chat-input">
+                        <input type="text" id="user-input" placeholder="Задайте ваш вопрос..." onkeypress="if(event.key=='Enter') sendMessage()">
+                        <button class="btn" onclick="sendMessage()">Отправить</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="institutes" class="section">
+        <div class="container">
+            <h2 class="section-title">Институты и университеты России</h2>
+            
+            <div class="map-container">
+                <div id="map"></div>
+            </div>
+            
+            <div class="filter-panel">
+                <div class="filter-group">
+                    <label>Регион</label>
+                    <select id="region-filter">
+                        <option value="">Все регионы</option>
+                        <option value="central">Центральный федеральный округ</option>
+                        <option value="northwest">Северо-Западный федеральный округ</option>
+                        <option value="south">Южный федеральный округ</option>
+                        <option value="north-caucasus">Северо-Кавказский федеральный округ</option>
+                        <option value="volga">Приволжский федеральный округ</option>
+                        <option value="ural">Уральский федеральный округ</option>
+                        <option value="siberian">Сибирский федеральный округ</option>
+                        <option value="far-east">Дальневосточный федеральный округ</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>Направление подготовки</label>
+                    <select id="field-filter">
+                        <option value="">Все направления</option>
+                        <option value="it">IT и технологии</option>
+                        <option value="engineering">Инженерия</option>
+                        <option value="science">Наука</option>
+                        <option value="medicine">Медицина</option>
+                        <option value="economics">Экономика</option>
+                        <option value="humanities">Гуманитарные науки</option>
+                        <option value="arts">Искусство</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>Форма обучения</label>
+                    <select id="form-filter">
+                        <option value="">Все формы</option>
+                        <option value="full-time">Очная</option>
+                        <option value="part-time">Заочная</option>
+                        <option value="evening">Вечерняя</option>
+                        <option value="distance">Дистанционная</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <input type="text" id="search-institutes" placeholder="Поиск по названию, городу или специальности...">
+            </div>
+            
+            <div class="institutes-grid" id="institutes-container">
+                <!-- Институты будут добавляться через JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <section id="colleges" class="section">
+        <div class="container">
+            <h2 class="section-title">Колледжи и техникумы России</h2>
+            
+            <div class="tabs">
+                <div class="tab active" onclick="changeCollegeTab('all-colleges')">Все колледжи</div>
+                <div class="tab tab-college" onclick="changeCollegeTab('by-region')">По регионам</div>
+                <div class="tab tab-college" onclick="changeCollegeTab('by-specialty')">По специальностям</div>
+            </div>
+            
+            <div class="tab-content active" id="all-colleges">
+                <div class="form-group">
+                    <input type="text" id="search-colleges" placeholder="Поиск по названию, городу или специальности...">
+                </div>
+                
+                <div class="colleges-grid" id="colleges-container">
+                    <!-- Колледжи будут добавляться через JavaScript -->
+                </div>
+            </div>
+            
+            <div class="tab-content" id="by-region">
+                <div class="form-group">
+                    <select id="region-college-filter">
+                        <option value="">Выберите регион</option>
+                        <option value="moscow">Москва</option>
+                        <option value="petersburg">Санкт-Петербург</option>
+                        <option value="novosibirsk">Новосибирская область</option>
+                        <option value="ekaterinburg">Свердловская область</option>
+                        <option value="kazan">Республика Татарстан</option>
+                        <option value="nizhny-novgorod">Нижегородская область</option>
+                        <option value="rostov">Ростовская область</option>
+                        <option value="krasnoyarsk">Красноярский край</option>
+                        <option value="chelyabinsk">Челябинская область</option>
+                        <option value="samara">Самарская область</option>
+                        <option value="ufa">Республика Башкортостан</option>
+                        <option value="krasnodar">Краснодарский край</option>
+                        <option value="perm">Пермский край</option>
+                        <option value="voronezh">Воронежская область</option>
+                        <option value="volgograd">Волгоградская область</option>
+                        <option value="saratov">Саратовская область</option>
+                        <option value="tyumen">Тюменская область</option>
+                        <option value="omsk">Омская область</option>
+                        <option value="tomsk">Томская область</option>
+                        <option value="irkutsk">Иркутская область</option>
+                        <option value="khabarovsk">Хабаровский край</option>
+                        <option value="vladivostok">Приморский край</option>
+                        <option value="kaliningrad">Калининградская область</option>
+                    </select>
+                </div>
+                
+                <div class="colleges-grid" id="colleges-by-region">
+                    <!-- Колледжи по регионам будут добавляться через JavaScript -->
+                </div>
+            </div>
+            
+            <div class="tab-content" id="by-specialty">
+                <div class="form-group">
+                    <select id="specialty-college-filter">
+                        <option value="">Выберите специальность</option>
+                        <option value="tech">Технические специальности</option>
+                        <option value="economics">Экономика и управление</option>
+                        <option value="medicine">Медицина</option>
+                        <option value="pedagogy">Педагогика</option>
+                        <option value="arts">Искусство и дизайн</option>
+                        <option value="it">IT-специальности</option>
+                        <option value="service">Сфера услуг</option>
+                        <option value="law">Право и юриспруденция</option>
+                        <option value="transport">Транспорт и логистика</option>
+                        <option value="agriculture">Сельское хозяйство</option>
+                        <option value="construction">Строительство</option>
+                        <option value="food">Пищевая промышленность</option>
+                        <option value="tourism">Туризм и гостиничный сервис</option>
+                    </select>
+                </div>
+                
+                <div class="colleges-grid" id="colleges-by-specialty">
+                    <!-- Колледжи по специальностям будут добавляться через JavaScript -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Модальное окно для детальной информации -->
+    <div id="detailsModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="modal-content"></div>
+        </div>
+    </div>
+
+    <footer id="about">
+        <div class="container">
+            <div class="logo">StudyPath</div>
+            <p>Помогаем абитуриентам найти свой путь с 2025 года</p>
+            <ul class="footer-links">
+                <li><a href="#">О нас</a></li>
+                <li><a href="контакты.html">Контакты</a></li>
+                <li><a href="#">Партнеры</a></li>
+                <li><a href="#">Политика конфиденциальности</a></li>
+            </ul>
+            <p>© 2025 StudyPath. Все права защищены.</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
